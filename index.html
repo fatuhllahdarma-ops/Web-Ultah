@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f8eef0" />
+  <meta name="description" content="Hadiah kecil penuh cinta untuk ulang tahun Mamah yang ke-56, dari Aa." />
+  <title>Untuk Mamah Tersayang — 56 Tahun Penuh Cinta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <div class="gate" id="gate">
+    <div class="gate-glow" aria-hidden="true"></div>
+    <div class="gate-content">
+      <div class="gate-seal" aria-hidden="true">♥</div>
+      <p class="eyebrow">ADA SESUATU YANG SPESIAL HARI INI</p>
+      <h1>Sebuah hadiah kecil<br /><em>untuk Mamah</em></h1>
+      <p class="gate-sub">Dari Aa, untuk Mamah.</p>
+      <button class="button button-primary" id="openGift" type="button">Buka hadiahnya <span aria-hidden="true">↗</span></button>
+      <p class="gate-hint">Psst… siapkan senyum paling manis ya, Mah ♡</p>
+    </div>
+    <div class="gate-bottom">10 NOVEMBER 2026 <span>✦</span> FROM AA, TO MAMAH</div>
+  </div>
+
+  <div class="site" id="site" aria-hidden="true">
+    <header class="topbar">
+      <a class="logo" href="#home">untuk <span>mamah.</span></a>
+      <button class="music-toggle" id="musicToggle" type="button" aria-label="Nyalakan musik" aria-pressed="false"><span id="musicIcon">♫</span><span id="musicText">Putar musik</span></button>
+    </header>
+
+    <main>
+      <section class="hero section" id="home">
+        <span class="floating-heart heart-one" aria-hidden="true">♡</span>
+        <span class="floating-heart heart-two" aria-hidden="true">✳</span>
+        <div class="hero-inner reveal">
+          <div class="hero-pill"><span class="pill-dot"></span> A beautiful day, for a beautiful soul</div>
+          <p class="eyebrow">SELASA, 10 NOVEMBER 2026</p>
+          <h2>Happy Birthday,<br /><em>Mamah.</em> <span class="tiny-heart">♥</span></h2>
+          <p class="hero-desc">Untuk perempuan paling hebat yang selalu jadi rumah, doa, dan tempat pulang terbaik bagi keluarga.</p>
+          <div class="age-medallion" aria-label="Ulang tahun ke-56"><span class="age-num">56</span><span class="age-label">TAHUN PENUH HIKMAH</span></div>
+          <a class="text-link" href="#doa">Ada pesan dari Aa <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-edge" aria-hidden="true">✽ &nbsp; forever grateful for you &nbsp; ✽</div>
+      </section>
+
+      <section class="note-section section" id="doa">
+        <div class="content-narrow reveal">
+          <p class="eyebrow">01 / A LITTLE PRAYER</p>
+          <div class="section-ornament" aria-hidden="true">✺</div>
+          <h2 class="section-heading">Di hari yang <em>istimewa</em> ini…</h2>
+          <p class="note-lead">Barakallah fii umrik, Mahh. Semoga Allah selalu melimpahkan kesehatan, keberkahan umur, ketenangan hati, rezeki yang luas dan berkah, serta kebahagiaan di setiap langkah Mamah.</p>
+          <div class="prayer-card"><span aria-hidden="true">✦</span><p>Ya Allah, jagalah Mamah dalam kasih sayang-Mu. Berikan Mamah umur yang penuh kebaikan, sehat lahir batin, dan kebahagiaan di dunia serta akhirat.</p><span aria-hidden="true">✦</span></div>
+          <p class="small-script">Aamiin ya Rabbal ‘alamin ♡</p>
+        </div>
+      </section>
+
+      <section class="cake-section section" id="cake">
+        <div class="content-wide reveal">
+          <p class="eyebrow">02 / MAKE A WISH</p>
+          <h2 class="section-heading">Satu permintaan, <em>sejuta doa.</em></h2>
+          <p class="section-copy">Sebelum tiup lilinnya, Mamah boleh berdoa dulu. Semoga semua doa baik Mamah Allah kabulkan. 🤍</p>
+          <div class="cake-scene" id="cakeScene" role="img" aria-label="Kue ulang tahun tiga lapis dengan lilin menyala">
+            <span class="cake-sparkle sparkle-a" aria-hidden="true">✧</span><span class="cake-sparkle sparkle-b" aria-hidden="true">✦</span>
+            <div class="cake-visual">
+              <div class="candle"><div class="flame" id="flame"></div><div class="candle-stick"></div></div>
+              <div class="cake-top"><div class="icing-drips"></div><span class="cake-top-rose">♥</span></div>
+              <div class="cake-bottom"><div class="cake-band"></div><div class="cake-writing">Mamah ♡</div></div>
+              <div class="cake-plate"></div>
+            </div>
+          </div>
+          <button class="button button-primary" id="blowButton" type="button">Tiup lilinnya, Mah <span aria-hidden="true">✦</span></button>
+          <p class="cake-feedback" id="cakeFeedback" aria-live="polite">Make a wish… ✨</p>
+        </div>
+      </section>
+
+      <section class="gallery-section section" id="gallery">
+        <div class="content-wide reveal">
+          <p class="eyebrow">03 / LITTLE MOMENTS, BIG LOVE</p>
+          <h2 class="section-heading">Kenangan yang <em>selalu hangat.</em></h2>
+          <p class="section-copy">Foto mungkin menyimpan satu momen. Tapi cinta Mamah, Aa simpan selamanya.</p>
+          <div class="gallery-grid" id="galleryGrid">
+            <div class="photo-card photo-card-large" data-slot="0"><div class="photo-fallback"><span>♡</span><p>Our favorite memories</p><small>Foto kebersamaan kita</small></div><img alt="Kenangan indah bersama Mamah" hidden /><div class="photo-caption">rumah ternyaman ♡</div></div>
+            <div class="photo-card" data-slot="1"><div class="photo-fallback"><span>✿</span><p>Little moments</p><small>Senyum Mamah</small></div><img alt="Senyum Mamah" hidden /><div class="photo-caption">senyum paling hangat</div></div>
+            <div class="photo-card" data-slot="2"><div class="photo-fallback"><span>✧</span><p>Always together</p><small>Kenangan keluarga</small></div><img alt="Kenangan keluarga" hidden /><div class="photo-caption">cerita kita</div></div>
+            <div class="photo-card" data-slot="3"><div class="photo-fallback"><span>♥</span><p>Love you, Mah</p><small>Momen spesial</small></div><img alt="Momen spesial Mamah" hidden /><div class="photo-caption">selamanya berharga</div></div>
+          </div>
+          <div class="gallery-tools">
+            <label for="photoInput" class="button button-outline">+ Tambahkan foto kenangan</label>
+            <input type="file" id="photoInput" accept="image/*" multiple hidden />
+            <p class="gallery-hint" id="galleryHint">Pilih 1–4 foto dari HP atau laptop. Foto tetap di perangkat ini.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="letter-section section" id="surat">
+        <div class="content-narrow reveal">
+          <p class="eyebrow">04 / FROM YOUR SON, WITH LOVE</p>
+          <h2 class="section-heading">Ada surat kecil <em>buat Mamah.</em></h2>
+          <div class="envelope-wrap" id="envelopeWrap">
+            <button class="envelope" id="openLetter" type="button" aria-expanded="false" aria-controls="letterPaper"><span class="envelope-flap"></span><span class="envelope-base"></span><span class="envelope-heart">♥</span><span class="sr-only">Buka surat dari Aa</span></button>
+            <p class="envelope-instruction" id="envelopeInstruction">Klik amplopnya ya, Mah ♡</p>
+            <article class="letter-paper" id="letterPaper" hidden>
+              <span class="letter-date">Yogyakarta, 10 November 2026</span>
+              <h3>Untuk Mamah tersayang,</h3>
+              <div id="typedLetter" aria-live="off"></div>
+              <p class="letter-signoff">Dengan cinta yang besar,<br /><strong>Aa ♡</strong></p>
+              <span class="letter-flower" aria-hidden="true">❀</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing-section section" id="closing">
+        <div class="content-narrow reveal">
+          <span class="closing-heart" aria-hidden="true">♡</span>
+          <p class="eyebrow">ONE LAST THING</p>
+          <h2>Kalau bisa memilih lagi,<br />Aa tetap mau <em>Mamah</em><br />jadi Mamah Aa.</h2>
+          <p>Selamat ulang tahun yang ke-56, Mah. Semoga hari ini dan setiap hari setelahnya penuh bahagia.</p>
+          <button class="button button-light" id="replayConfetti" type="button">Peluk virtual buat Mamah <span aria-hidden="true">♥</span></button>
+          <div class="closing-footer">made with ♡ by Aa <span>·</span> 10.11.2026</div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">Untuk Mamah, selamanya. <span>♥</span></footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
