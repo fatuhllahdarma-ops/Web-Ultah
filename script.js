@@ -111,7 +111,7 @@ $('#photoInput').addEventListener('change',async (event)=>{
   toast('Foto kenangan berhasil ditambahkan ♡');
 });
 
-// Otomatis mengisi galeri jika ada foto bernama foto-1.jpg ... foto-4.jpg di folder 'foto'.
+// Otomatis mengisi galeri jika ada foto bernama foto-1.png ... foto-4.png di folder 'foto'.
 // Kesalahan loading tidak akan menghilangkan placeholder yang sudah ada.
 for(let i=1;i<=4;i++){
   const test=new Image();
@@ -119,9 +119,9 @@ for(let i=1;i<=4;i++){
     const card=document.querySelector(`[data-slot="${i-1}"]`);
     const image=card.querySelector('img');
     if(image.dataset.objectUrl)return;
-    image.src=`foto/foto-${i}.jpg`;image.hidden=false;card.querySelector('.photo-fallback').hidden=true;
+    image.src=`foto/foto-${i}.png`;image.hidden=false;card.querySelector('.photo-fallback').hidden=true;
   };
-  test.src=`foto/foto-${i}.jpg`;
+  test.src=`foto/foto-${i}.png`;
 }
 
 $('#openLetter').addEventListener('click',()=>{

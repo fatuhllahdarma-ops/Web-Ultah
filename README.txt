@@ -10,7 +10,7 @@ CARA MEMBUKA
 CARA MEMASUKKAN FOTO PERMANEN
 1. Di dalam folder ulang-tahun-mamah, buat folder bernama "foto".
 2. Masukkan hingga empat foto dalam folder tersebut dengan nama:
-   foto-1.jpg, foto-2.jpg, foto-3.jpg, foto-4.jpg
+   foto-1.png, foto-2.png, foto-3.png, foto-4.png
 3. Refresh halaman. Keempat foto otomatis tampil.
    Alternatif: tekan tombol "Tambahkan foto kenangan" di website.
    Catatan: unggahan lewat tombol hanya sementara selama tab terbuka.
