@@ -4,7 +4,7 @@ WEBSITE ULANG TAHUN MAMAH — 10 NOVEMBER 2026
 CARA MEMBUKA
 1. Ekstrak ZIP ini.
 2. Klik dua kali file index.html di laptop.
-3. Klik "Buka hadiahnya" untuk masuk. Buka bagian musik, lalu tekan putar di pemutar YouTube.
+3. Klik "Buka hadiahnya" untuk masuk dan menyalakan musik.
 4. Gunakan "Tiup lilinnya" dan amplop untuk melihat kejutan.
 
 CARA MEMASUKKAN FOTO PERMANEN
@@ -23,8 +23,9 @@ CARA BERBAGI LEWAT HP
   tetapi untuk pengalaman terbaik gunakan hosting statis HTTPS.
 
 MUSIK
-- Lagu diputar melalui pemutar YouTube resmi; perangkat perlu terhubung ke internet.
-- Tekan tombol putar pada pemutar. Jika tidak tampil, gunakan tautan untuk membuka lagu di YouTube.
+- Musik instrumental original sederhana disintesis oleh browser (Web Audio API).
+- Tidak perlu file MP3. Musik mulai setelah pengunjung menekan tombol "Buka hadiahnya".
+- Jika musik tidak mulai otomatis, tekan tombol "Putar musik".
 
 FILE
 - index.html: struktur website
@@ -33,7 +34,7 @@ FILE
 
 CATATAN
 - Font web memakai Google Fonts; ketika offline akan memakai font cadangan.
-- Website tidak mengumpulkan atau menyimpan data pribadi. Pemutar YouTube memuat konten dari layanan Google/YouTube.
+- Tidak ada data yang dikirim ke server oleh website ini.
 - Foto yang ditambahkan via tombol tidak diunggah ke internet.
 
 Dari Aa, untuk Mamah tersayang. ♡

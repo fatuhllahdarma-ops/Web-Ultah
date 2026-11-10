@@ -3,6 +3,10 @@ const $ = (selector) => document.querySelector(selector);
 const gate = $('#gate');
 const site = $('#site');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let audioContext = null;
+let musicTimer = null;
+let isPlaying = false;
+let noteIndex = 0;
 let letterStarted = false;
 let toastTimer = null;
 const letter = `Barakallah fii umrik, Mahh. 🤍\n\nMakin sehat, makin berkah umurnya, makin banyak dan berkah rezekinya. Semoga Mamah selalu bahagia dan Allah mudahkan setiap urusan Mamah.\n\nMakasii banyak yaa, Mah, karena selalu jadi Mamah yang selalu ada buat keluarga. Terima kasih buat semua kasih sayang, perjuangan, doa, dan pengorbanan Mamah yang mungkin belum bisa Aa balas satu per satu.\n\nMaaf Aa belum bisa ngasih apa-apa yang besar buat Mamah sekarang. Tapi Aa akan terus berusaha supaya suatu hari nanti Aa bisa bikin Mamah bangga dan bahagia.\n\nDoain Aa yaa, Mah, biar jadi orang yang sholeh, bertakwa, kaya raya yang dermawan, dan bermanfaat buat banyak orang. Semoga setiap keberhasilan Aa nanti juga jadi amal baik dan kebahagiaan buat Mamah.\n\nAa sayang Mamah. Semoga Allah selalu menjaga Mamah, di dunia sampai surga-Nya nanti. Aamiin. ♡`;
@@ -12,10 +16,56 @@ function toast(message){
   clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.remove('show'),3500);
 }
 
+// Musik original berupa melodi instrumental sederhana yang dibuat menggunakan Web Audio API.
+// Tidak memerlukan unduhan audio eksternal dan baru terdengar setelah interaksi pengguna.
+const melody = [
+  [392,.30],[440,.30],[523.25,.65],[440,.35],[392,.35],[349.23,.70],
+  [329.63,.30],[392,.30],[440,.65],[392,.35],[349.23,.35],[329.63,.80],
+  [349.23,.30],[392,.30],[523.25,.70],[493.88,.35],[440,.35],[392,.75],
+  [349.23,.35],[329.63,.35],[293.66,.60],[329.63,.35],[349.23,.35],[392,.90]
+];
+function soundNote(frequency,duration){
+  if(!audioContext) return;
+  const now=audioContext.currentTime;
+  const master=audioContext.createGain();master.gain.setValueAtTime(0.0001,now);
+  master.gain.exponentialRampToValueAtTime(0.085,now+.035);
+  master.gain.exponentialRampToValueAtTime(.0001,now+Math.min(duration+0.7,1.7));
+  master.connect(audioContext.destination);
+  for (const [type,mult,volume] of [['sine',1,1],['triangle',2,.18]]){
+    const oscillator=audioContext.createOscillator();
+    const gain=audioContext.createGain();
+    oscillator.type=type; oscillator.frequency.value=frequency*mult;
+    gain.gain.value=volume; oscillator.connect(gain);gain.connect(master);
+    oscillator.start(now);oscillator.stop(now+Math.min(duration+0.75,1.75));
+  }
+}
+function nextNote(){
+  if(!isPlaying) return;
+  const [pitch,beats]=melody[noteIndex%melody.length];
+  soundNote(pitch,beats*.6);
+  noteIndex++;
+  musicTimer=setTimeout(nextNote,beats*660);
+}
+async function startMusic(){
+  try{
+    if(!audioContext) audioContext=new (window.AudioContext||window.webkitAudioContext)();
+    await audioContext.resume();
+    if(isPlaying) return;
+    isPlaying=true; nextNote();
+    $('#musicText').textContent='Jeda musik';$('#musicIcon').textContent='Ⅱ';
+    $('#musicToggle').setAttribute('aria-pressed','true');$('#musicToggle').setAttribute('aria-label','Jeda musik');
+  }catch(e){toast('Musik tidak tersedia di browser ini.');}
+}
+function stopMusic(){
+  isPlaying=false;clearTimeout(musicTimer);
+  $('#musicText').textContent='Putar musik';$('#musicIcon').textContent='♫';
+  $('#musicToggle').setAttribute('aria-pressed','false');$('#musicToggle').setAttribute('aria-label','Nyalakan musik');
+}
+$('#musicToggle').addEventListener('click',()=>isPlaying?stopMusic():startMusic());
 $('#openGift').addEventListener('click',()=>{
   gate.remove(); site.removeAttribute('aria-hidden');
   window.scrollTo({top:0,behavior:'instant'});
-  setupReveals();confettiBurst(150);
+  setupReveals();startMusic(); confettiBurst(150);
 });
 
 function setupReveals(){
